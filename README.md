@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Asyx Ticketing system
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This ticketing system has been created using reactjs, and it used Firebase cloud services for
+storage of data such as users, tickets and notifications
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+This system can perfom the following functions
+## `Authentication`
 
-### `yarn start`
+The syystem offers email and password authentication type. in order t o use it, first of all 
+must sign up by adding his username which must be at least more than six characters, and his email which must be a valid email and password which must be at least eight (8) characters long. System will not accept the credentials which do not adthere to those guides and it will notify the user in order for user to  comply to them.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Creating tickets`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+By clicking the plus button on th top bar navigation located on the top right  corner of the screen you can create new ticket
+### `Open tickets`
+By clicking the ticket on the main section of the system it will redirect you to the another tab within the system containing the information of the specific ticket
+### `Closing ticket`
 
-### `yarn test`
+Once the ticket is opened on the new tab witing the system, there ae two options on the bottom of the ticket replies section, one of the option button is labelled as "close ticket",
+by clicking the button it will close the ticket
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Resolve the ticket`
+Once the ticket is opened on the new tab witing the system, there ae two options on the bottom of the ticket replies section, one of the option button is labelled as "resolve ticket",
+by clicking the button it will resolve the ticket
 
-### `yarn build`
+**Note:The system will automatically create notificiations for the important actions performed on the ticket  such as `creating new ticket`,`closing a ticket`,`resolving a ticket`**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can access your notification by clicking the bell icon on the top bar navigation which is located on top of the screen. Moreover there are two actions that can be performed on the notification by clicking the three dots, these actions are `clear` which will delete the notification and `mark as read` which will mark the notification as read
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## `Grouping tickets`
+on the 'DASHBOARD' or home screen several created notifications will be listed and differentiated by colors based on their status. These status can are
+`opened` for opened tickets
+`closed` for closed tickets
+`resolved` for resolved tickets
+`new` for newly created tickets
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Replying to a ticket`
+Once the ticket is opened on the new tab witing the system, you can add reply to a ticket by filling the text typing area which has grey borders around it and clicking the `post` button below the textarea this will send your reply and it will automatically previewed below the box 
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Sysytem statistics`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+These can be accessed via the sider naviagtion menu on the left side of the screen by clicking the graph bar icon it will redirect to the statistics page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
