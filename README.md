@@ -8,7 +8,7 @@ storage of data such as users, tickets and notifications
 This system can perfom the following functions
 ## `Authentication`
 
-The syystem offers email and password authentication type. In order to use it, first of all 
+The system offers email and password authentication type. In order to use it, first of all 
 must sign up by adding your username which must be at least more than six characters, and your email which must be a valid email and password which must be at least eight (8) characters. System will not accept the credentials which do not adthere to those guides and it will notify the user in order for the user to  comply to them.
 
 ### `Creating tickets`
