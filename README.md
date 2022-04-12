@@ -30,7 +30,7 @@ by clicking the button it will resolve the ticket
 You can access your notification by clicking the bell icon on the top bar navigation which is located on top of the screen. Moreover there are two actions that can be performed on the notification by clicking the three dots, these actions are `clear` which will delete the notification and `mark as read` which will mark the notification as read
 
 ## `Grouping tickets`
-on the 'DASHBOARD' or home screen several created notifications will be listed and differentiated by colors based on their status. These status can are
+on the 'DASHBOARD' or home screen several created tickets will be listed and differentiated by colors based on their status. These status can are
 `opened` for opened tickets
 `closed` for closed tickets
 `resolved` for resolved tickets
