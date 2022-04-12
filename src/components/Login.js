@@ -36,7 +36,7 @@ function Auth() {
            let user = userCredential.user;
            
            //send user home
-            return navigate('./Home');
+            return navigate('/Home');
         
         }).catch((error) => {
            console.log(error.message);

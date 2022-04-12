@@ -2,8 +2,14 @@ import React,{useState,useEffect} from 'react'
 import {Icon} from '@blueprintjs/core'
 import {collection,doc, setDoc,query,limit,onSnapshot,updateDoc,where} from 'firebase/firestore'
 import db  from '../firebase/config'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAuth} from "firebase/auth";
+
+const auth = getAuth()
 
 function AllStats() {
+
+    const [user] = useAuthState(auth)
     const [all, setAll] = useState(0);
     const [newTickets, setNewTickets] = useState(0);
     const [opened, setOpened] = useState(0);
@@ -14,7 +20,10 @@ function AllStats() {
   useEffect(() =>{
 
     const unSubscribe = async() =>{
-       let queryRef = query(collection(db,'tickets'),where("status","==","new"));
+       let queryRef = query(collection(db,'tickets'),
+        where("status","==","new"),
+        where("assigned_to","==",user.email)
+        );
        await onSnapshot(queryRef,(snapshot) =>{
                 setNewTickets(snapshot.size)
        })
@@ -26,7 +35,10 @@ function AllStats() {
   useEffect(() =>{
 
     const unSubscribe = async() =>{
-       let queryRef = query(collection(db,'tickets'),where("status","==","resolved"));
+       let queryRef = query(collection(db,'tickets'),
+       where("status","==","resolved"),
+       where("assigned_to","==",user.email)
+       );
        await onSnapshot(queryRef,(snapshot) =>{
                 setResolved(snapshot.size)
        })
@@ -39,7 +51,10 @@ function AllStats() {
   useEffect(() =>{
 
     const unSubscribe = async() =>{
-       let queryRef = query(collection(db,'tickets'),where("status","==","opened"));
+       let queryRef = query(collection(db,'tickets'),
+       where("status","==","opened"),
+       where("assigned_to","==",user.email)
+       );
        await onSnapshot(queryRef,(snapshot) =>{
                 setOpened(snapshot.size)
        })
@@ -52,7 +67,9 @@ function AllStats() {
   useEffect(() =>{
 
     const unSubscribe = async() =>{
-       let queryRef = query(collection(db,'tickets'),where("status","==","closed"));
+       let queryRef = query(collection(db,'tickets'),
+       where("status","==","closed"),
+       where("assigned_to","==",user.email));
        await onSnapshot(queryRef,(snapshot) =>{
                 setClosed(snapshot.size)
        })
@@ -64,7 +81,7 @@ function AllStats() {
   useEffect(() =>{
 
     const unSubscribe = async() =>{
-       let queryRef = query(collection(db,'tickets'));
+       let queryRef = query(collection(db,'tickets'), where("assigned_to","==",user.email));
        await onSnapshot(queryRef,(snapshot) =>{
                 setAll(snapshot.size)
        })

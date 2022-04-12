@@ -1,9 +1,14 @@
 import React,{useState,useEffect} from 'react'
 import {Icon,Button,Collapse, Tooltip,Position} from '@blueprintjs/core'
 import {collection, onSnapshot, query,limit, where} from 'firebase/firestore'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAuth} from "firebase/auth";
 import db  from '../firebase/config'
 
+const auth = getAuth()
+
 function Tickets(props) {
+    const [user] = useAuthState(auth)
     const [isOpen,setIsOpen] =useState(false)
     const [allTickets,setAllTickets] = useState([])
     const [filter,setFilter] = useState("all")
@@ -18,6 +23,7 @@ function Tickets(props) {
     const unSubscribe = async()=>{
         let quertRef = query(
                 collection(db,"tickets"),
+                where("assigned_to",'==',user.email),
                 limit(load)
         );
         await onSnapshot(quertRef,(snapshot)=>{
@@ -62,6 +68,7 @@ function Tickets(props) {
            let quertRef = query(
                    collection(db,"tickets"),
                    where("status","==",criteria),
+                   where("assigned_to","==",user.email),
                    limit(load)
            );
            await onSnapshot(quertRef,(snapshot)=>{
@@ -100,11 +107,11 @@ function Tickets(props) {
                     <Icon icon="projects" color="#DDA706" size={20}  className="icon-ticket"/>
                          <h3>Tickets</h3>
                      </div>
-                    <p>Total tickets: 24</p> 
+                    <p>Total tickets: {allTickets.length}</p> 
             </div>
 
             <div className="title-wrapper" style={{ marginTop:10}}>
-                 <div className="title-inline">
+                 <div className="title-inline" id="hide-small">
                     <Icon icon="exchange" color="#DDA706" size={20}  className="icon-ticket"/>
                          <h3>Channels</h3>
                      </div>

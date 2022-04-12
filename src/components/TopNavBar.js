@@ -226,8 +226,10 @@ function TopNavBar(props) {
                  <Menu>
                      <p className='ticket-container-p'>Account</p>
                     
+                    <MenuItem  label={user.email}  icon='user' onClick={()=>console.log('just null')}/>
                     <MenuItem  label='Log out'  icon='log-out' onClick={()=>logout()}/>
                  </Menu>
+                 
             
                 } position={Position.BOTTOM_BOTTOM}>
                 <img  src={default_user_img} alt="profile-image"/>
